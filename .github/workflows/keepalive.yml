@@ -21,7 +21,12 @@ jobs:
     steps:
     - name: wget
       run: |
-        wget --no-check-certificate -O gv.sh https://raw.githubusercontent.com/Etr0-666/KeepMyGoogleVoice/master/gv.sh && chmod +x gv.sh && bash gv.sh
+        wget --no-check-certificate -O gv.sh https://raw.githubusercontent.com/Etr0-666/KeepMyGoogleVoice/master/gv.py && chmod +x gv.py
+    - name: setup
+      run: |
+        apt install python3
+        apt install python3-pip
+        pip3 install googlevoice
     - name: run
       run: | 
         python gv.py ${{ secrets.acc }} ${{ secrets.pwd }}
