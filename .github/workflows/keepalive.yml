@@ -1,0 +1,27 @@
+#自动调用api保活，模仿人为开发版
+name: Auto Api SR
+
+on: 
+  release:
+    types: [published]
+  push:
+    tags:
+    - 'v*'
+  #  branches: 
+  #    - master
+  schedule:
+    - cron: "0 1,5,8 * * 1-5"
+  watch:
+    types: [started]
+   
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: wget
+      run: |
+        wget --no-check-certificate -O gv.sh https://raw.githubusercontent.com/Etr0-666/KeepMyGoogleVoice/master/gv.sh && chmod +x gv.sh && bash gv.sh
+    - name: run
+      run: | 
+        python gv.py ${{ secrets.acc }} ${{ secrets.pwd }}
