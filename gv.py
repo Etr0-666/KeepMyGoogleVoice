@@ -3,13 +3,14 @@
 
 from six.moves import input
 from googlevoice import Voice
+import sys
 
 def run():
     voice = Voice()
-    voice.login(email = "xxx@gmail.com", passwd = "xxx")
+    voice.login(email = sys.argv[1], passwd = sys.argv[2])
 
-    phoneNumber = "8336721001"
-    text = "cloudflare.com"
+    phoneNumber = "8282909714‬"
+    text = "keepalive"
 
     voice.send_sms(phoneNumber, text)
 
