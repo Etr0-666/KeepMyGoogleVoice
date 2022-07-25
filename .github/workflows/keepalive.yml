@@ -26,6 +26,7 @@ jobs:
         wget --no-check-certificate -O gv.py https://raw.githubusercontent.com/Etr0-666/KeepMyGoogleVoice/master/gv.py && chmod +x gv.py
     - name: setup googlevoice
       run: |
+        pip install six
         pip install googlevoice
     - name: run
       run: | 
