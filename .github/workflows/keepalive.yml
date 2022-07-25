@@ -1,6 +1,4 @@
-#自动调用api保活，模仿人为开发版
-name: Auto Api SR
-
+name: KeepAlive
 on: 
   release:
     types: [published]
@@ -21,7 +19,7 @@ jobs:
     steps:
     - name: wget
       run: |
-        wget --no-check-certificate -O gv.sh https://raw.githubusercontent.com/Etr0-666/KeepMyGoogleVoice/master/gv.py && chmod +x gv.py
+        wget --no-check-certificate -O gv.py https://raw.githubusercontent.com/Etr0-666/KeepMyGoogleVoice/master/gv.py && chmod +x gv.py
     - name: setup
       run: |
         apt install python3
