@@ -9,7 +9,7 @@ def run():
     voice = Voice()
     voice.login(email = sys.argv[1], passwd = sys.argv[2])
 
-    phoneNumber = "8282909714‬"
+    phoneNumber = "8282909714"
     text = "keepalive"
 
     voice.send_sms(phoneNumber, text)
