@@ -17,14 +17,16 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
+    - name: Set up Python #安装python
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.8
     - name: wget
       run: |
         wget --no-check-certificate -O gv.py https://raw.githubusercontent.com/Etr0-666/KeepMyGoogleVoice/master/gv.py && chmod +x gv.py
-    - name: setup
+    - name: setup googlevoice
       run: |
-        apt install python3
-        apt install python3-pip
-        pip3 install googlevoice
+        pip install googlevoice
     - name: run
       run: | 
         python gv.py ${{ secrets.acc }} ${{ secrets.pwd }}
